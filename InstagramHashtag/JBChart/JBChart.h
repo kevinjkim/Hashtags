@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JBChart/JBChartView.h"
-#import "JBChart/JBBarChartView.h"
-#import "JBChart/JBLineChartView.h"
+#import <JBChart/JBChartView.h>
+#import <JBChart/JBBarChartView.h>
+#import <JBChart/JBLineChartView.h>
 
 //! Project version number for JBChart.
 FOUNDATION_EXPORT double JBChartVersionNumber;

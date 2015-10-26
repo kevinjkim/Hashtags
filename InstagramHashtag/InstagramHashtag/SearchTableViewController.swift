@@ -14,7 +14,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     var searchController = UISearchController()
     var numOfResults: Int = 20
-    var numArray: [Int] = [10, 20, 30, 40]
+    var numArray: [Int] = [10, 20, 30]
     var searched: Bool = false
     
     var hashResults = HashResults()
