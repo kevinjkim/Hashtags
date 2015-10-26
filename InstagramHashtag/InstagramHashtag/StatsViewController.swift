@@ -67,7 +67,6 @@ class StatsViewController: UIViewController, JBLineChartViewDelegate, JBLineChar
                 times.append(timeOffset)
             }
         }
-        print(times)
         
     }
     

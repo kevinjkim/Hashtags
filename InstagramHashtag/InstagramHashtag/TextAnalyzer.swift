@@ -33,13 +33,10 @@ class TextAnalyzer {
         
         for word in sentenceArr {
             if dict.positive.contains(word) {
-                print("positive word is \(word)")
                 positive++
             } else if dict.negative.contains(word) {
-                print("negative word is \(word)")
                 negative++
             } else if dict.negation.contains(word) {
-                print("negate word is \(word)")
                 negate++
             }
         }

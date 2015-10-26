@@ -20,8 +20,6 @@ class NetworkOperation {
     typealias JSONCompletion = ([String: AnyObject]?) -> Void
     
     func downloadJSONFromURL(completion: JSONCompletion) {
-        let uString = url.absoluteString
-        print("url = \(uString)")
         let request: NSURLRequest = NSURLRequest(URL: self.url)
         let dataTask: NSURLSessionDataTask = session.dataTaskWithRequest(request) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             if error == nil {

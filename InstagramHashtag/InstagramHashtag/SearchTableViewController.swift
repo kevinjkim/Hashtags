@@ -30,8 +30,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         tableView.rowHeight = UIScreen.mainScreen().bounds.width/2
         
-        print(accessToken)
-        
         setUpSearchBar()
         
         tableView.allowsSelection = false
@@ -61,7 +59,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if let usrStr = searchBar.text {
             searchController.active = false
-            print(usrStr)
             let instaService = InstagramService(accessToken: accessToken)
             instaService.getHashtagResults(usrStr, count: numOfResults, completion: { (let HashtagResults) -> Void in
                 if let hashtagResults = HashtagResults {
@@ -182,10 +179,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         self.searched = true
         sentimentCount = textAnaylzer.determineSentimentArray(hashResults.descriptionText)
         tableView.reloadData()
-        
-        print("positive = \(sentimentCount.positive)")
-        print("negative = \(sentimentCount.negative)")
-        print("neutral = \(sentimentCount.neutral)")
     }
     
     // MARK: - Alerts
@@ -223,7 +216,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         for number in numArray {
             let resultAction = UIAlertAction(title: "\(number)", style: .Default, handler: { (let action) -> Void in
                 self.numOfResults = number
-                print(self.numOfResults)
             })
             actionSheet.addAction(resultAction)
         }
