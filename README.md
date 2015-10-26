@@ -41,4 +41,4 @@ Viewing the sentiment and trends of the hashtag:
 <img src="/images/Stats_1.png" alt="stats_1" height="500px"/>
 <img src="/images/Stats_2.png" alt="stats_2" height="500px"/>
 
-**NOTE:** Needs Instagrams's API client_id and client_secret (in WebViewController.swift).
+**NOTE:** Needs Instagrams's API "client_id", "client_secret", and "redirect_uri" (in WebViewController.swift).
