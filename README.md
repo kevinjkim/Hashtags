@@ -2,7 +2,7 @@
 
 Utilizes Instagram's API to retrieve the most recent posts with specified hashtag.
 
-Uses Jawbone's JBChart API to graph the results and stats.
+Implements Jawbone's JBChart API to graph the results and stats.
 
 Analyzes the sentiment of the captions posted to determine whether they are positive, negative, or neutral to the hashtag using HP Haven OnDemand's Sentiment Analysis API.
 
