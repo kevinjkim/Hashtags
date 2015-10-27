@@ -4,9 +4,9 @@ Utilizes Instagram's API to retrieve the most recent posts with specified hashta
 
 Uses Jawbone's JBChart API to graph the results and stats.
 
-Analyzes the sentiment of the captions posted to determine whether they are positive, negative, or neutral to the hashtag.
+Analyzes the sentiment of the captions posted to determine whether they are positive, negative, or neutral to the hashtag using HP Haven OnDemand's Sentiment Analysis API.
 
-Choose the number of results returned and get more detailed info on the users that posted it.
+Choose the number of results returned and get more detailed info on the users that posted.
 
 
 The login process:
@@ -41,4 +41,4 @@ Viewing the sentiment and trends of the hashtag:
 <img src="/images/Stats_1.png" alt="stats_1" height="500px"/>
 <img src="/images/Stats_2.png" alt="stats_2" height="500px"/>
 
-**NOTE:** Needs Instagrams's API "client_id", "client_secret", and "redirect_uri" (in WebViewController.swift).
+**NOTE:** Needs Instagrams's API "client_id", "client_secret", and "redirect_uri" (in WebViewController.swift) and HP Haven OnDemand's Sentiment Analysis API key (in SearchTableViewController.swift).
