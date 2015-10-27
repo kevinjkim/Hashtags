@@ -10,50 +10,49 @@ import Foundation
 
 class TextAnalyzer {
     
-    let dict = Dictionary()
+    var baseURL: NSURL?
+    var apiKey: String
+    
+    init(apiKey: String) {
+        self.baseURL = NSURL(string: "https://api.havenondemand.com/1/api/sync/analyzesentiment/")
+        self.apiKey = apiKey
+    }
     
     func determineSentimentArray(sentences: [String]) -> Sentiment {
         var returnSentiment = Sentiment();
         
         for sentence in sentences {
-            let sentiment: Int = determineSentiment(sentence)
-            returnSentiment.updateSentiment(sentiment)
+            determineSentiment(sentence, completion: { (let sentimentValue: Int) -> Void in
+                dispatch_async(dispatch_get_main_queue()) {
+                    returnSentiment.updateSentiment(sentimentValue)
+                }
+            })
+            
         }
         
         return returnSentiment
     }
     
-    func determineSentiment(sentence: String) -> Int { // -1 for negative, 0 for neutral, 1 for positive
-        var positive = 0
-        var negative = 0
-        var negate = 0
-        
-        let newSentence = sentence.stringByReplacingOccurrencesOfString("#", withString: "").lowercaseString
-        let sentenceArr = newSentence.componentsSeparatedByString(" ")
-        
-        for word in sentenceArr {
-            if dict.positive.contains(word) {
-                positive++
-            } else if dict.negative.contains(word) {
-                negative++
-            } else if dict.negation.contains(word) {
-                negate++
+    func determineSentiment(sentence: String, completion: Int -> Void) { // -1 for negative, 0 for neutral, 1 for positive
+        let newSentence = sentence.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        let url = NSURL(string: "v1?text=\(newSentence)&language=eng&apikey=\(apiKey)", relativeToURL: baseURL)!
+
+        let networkOperation = NetworkOperation(url: url)
+        networkOperation.downloadJSONFromURL { (let jsonDictionary) -> Void in
+            if jsonDictionary != nil {
+                let sentiment = jsonDictionary!["aggregate"]!["sentiment"] as! String
+                
+                if sentiment == "positive" {
+                    completion(1)
+                }
+                else if sentiment == "neutral" {
+                    completion(0)
+                }
+                else {
+                    completion(-1)
+                }
             }
         }
-        
-        if (negate % 2 != 0) { // sentence negated -- checking for double negatives
-            let temp = positive
-            positive = negative
-            negative = temp
-        }
-        
-        if (positive > negative) {
-            return 1
-        } else if (negative > positive) {
-            return -1
-        }
-        
-        return 0    // sentence neutral
     }
     
 }

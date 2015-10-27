@@ -19,7 +19,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     var hashResults = HashResults()
     var userResults = UserResults()
-    let textAnaylzer = TextAnalyzer()
+    let textAnaylzer = TextAnalyzer(apiKey: "") // ADD HP HAVEN ON DEMAND SENTIMENT ANALYSIS API HERE
     var sentimentCount = Sentiment()
     var titleString: String = ""
 
@@ -57,6 +57,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        sentimentCount = Sentiment()
         if let usrStr = searchBar.text {
             searchController.active = false
             let instaService = InstagramService(accessToken: accessToken)
@@ -177,7 +178,14 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     func updateInfo(results: HashResults) {
         self.hashResults = results
         self.searched = true
-        sentimentCount = textAnaylzer.determineSentimentArray(hashResults.descriptionText)
+        
+        // get sentiment values
+        for sentence in hashResults.descriptionText {
+            textAnaylzer.determineSentiment(sentence, completion: { (let sentimentValue) -> Void in
+                self.sentimentCount.updateSentiment(sentimentValue)
+            })
+        }
+        
         tableView.reloadData()
     }
     

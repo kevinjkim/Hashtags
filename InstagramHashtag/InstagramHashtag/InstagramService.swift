@@ -25,6 +25,7 @@ class InstagramService {
     typealias UserInfoResults = (UserResults)? -> Void
     
     func getHashtagResults(hashtag: String, count: Int, completion: HashtagResults) {
+        self.hashResults = HashResults()
         let url = NSURL(string: "tags/\(hashtag)/media/recent?access_token=\(accessToken)&count=\(count)", relativeToURL: baseURL)
         
         let networkOperation = NetworkOperation(url: url!)
@@ -44,7 +45,6 @@ class InstagramService {
                     self.hashResults.numOfLikes.append(likes)
                     self.hashResults.timeStamps.append(time)
                 }
-                
                 completion((self.hashResults))
                 
             } else {
@@ -54,6 +54,7 @@ class InstagramService {
     }
     
     func getUserInfo(userID: Int, completion: UserInfoResults) {
+        self.userResults = UserResults()
         let url = NSURL(string: "users/\(userID)/?access_token=\(accessToken)", relativeToURL: baseURL)
         
         let networkOperation = NetworkOperation(url: url!)
