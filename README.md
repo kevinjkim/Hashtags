@@ -1,3 +1,7 @@
+<p align="center" >
+  <img src="/images/Hashtags_Banner.png" alt="Banner" title="Hashtags_Banner" width="563">
+</p>
+
 # Hashtags
 
 Utilizes Instagram's API to retrieve the most recent posts with specified hashtag.
