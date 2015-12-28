@@ -1,8 +1,8 @@
 <p align="center" >
-  <img src="/images/Hashtags_Banner.png" alt="Banner" title="Hashtags_Banner" width="563">
+  <img src="/images/Hashtags_Banner_2.png" alt="Banner" title="Hashtags_Banner" width="563">
 </p>
 
-# Hashtags
+# Features
 
 Utilizes Instagram's API to retrieve the most recent posts with specified hashtag.
 
@@ -12,7 +12,7 @@ Analyzes the sentiment of the captions posted to determine whether they are posi
 
 Choose the number of results returned and get more detailed info on the users that posted.
 
-
+# Pictures
 The login process:
 
 
