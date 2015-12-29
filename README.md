@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="/images/Hashtags_Banner_2.png" alt="Banner" title="Hashtags_Banner" width="563">
+  <img src="/images/Hashtags_Banner.png" alt="Banner" title="Hashtags_Banner" width="563">
 </p>
 
 # Features
