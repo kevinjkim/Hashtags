@@ -11,9 +11,9 @@ import UIKit
 class WebViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webView: UIWebView!
     
-    var client_id = ""      // ENTER INSTAGRAM CLIENT_ID HERE
-    var client_secret = ""  // ENTER INSTAGRAM CLIENT_SECRET HERE
-    var redirect_uri = ""   // ENTER INSTAGRAM REDIRECT_URI HERE
+    var client_id = ""  // ENTER INSTAGRAM CLIENT_ID HERE
+    var client_secret = "" // ENTER INSTAGRAM CLIENT_SECRET HERE
+    var redirect_uri = "" // ENTER INSTAGRAM REDIRECT_URI HERE
     var code = ""
     var access_token = ""
     

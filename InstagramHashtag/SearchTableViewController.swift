@@ -19,7 +19,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     var hashResults = HashResults()
     var userResults = UserResults()
-    let textAnaylzer = TextAnalyzer(apiKey: "") // ADD HP HAVEN ON DEMAND SENTIMENT ANALYSIS API HERE
+    let textAnaylzer = TextAnalyzer(apiKey: "") // Enter HP API KEY HERE
     var sentimentCount = Sentiment()
     var titleString: String = ""
 

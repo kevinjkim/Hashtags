@@ -40,6 +40,7 @@ class InstagramService {
                     let time = post["created_time"] as! String
                     
                     self.hashResults.imageURLs.append(imageData["url"] as! String)
+                    print(imageData["url"])
                     self.hashResults.descriptionText.append(captionData)
                     self.hashResults.userIDs.append(userID)
                     self.hashResults.numOfLikes.append(likes)
